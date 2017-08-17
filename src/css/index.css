@@ -1,3 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans|Nunito:300|Quicksand|Roboto|Maven+Pro');
+
+* {
+  font-family: 'Maven Pro', sans-serif !important;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  background-image: linear-gradient(-101deg, #EDEDED 0%, rgba(237,237,237,0.80) 100%);
+}
+
+.children-container {
+  flex: 1;
+  background-color: green;
+}
+
+
+
 .blog-post-preview {
   display: flex;
   flex-direction: column;

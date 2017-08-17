@@ -1,5 +1,20 @@
 const path = require('path');
 
+const producePosts = (posts, template, createPage) => {
+  posts.forEach(({ node }, index) => {
+    const prev = index === 0 ? false : posts[index - 1].node;
+    const next = index === posts.length - 1 ? false : posts[index + 1].node;
+    createPage({
+      path: node.frontmatter.path,
+      component: template,
+      context: {
+        prev,
+        next
+      }
+    });
+  });
+}
+
 const createTagPages = (createPage, edges) => {
   const tagTemplate = path.resolve(`src/templates/tags.js`);
   const posts = {};
@@ -44,6 +59,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators;
 
   const blogPostTemplate = path.resolve(`src/templates/blog-post.js`);
+  const workPostTemplate = path.resolve(`src/templates/work-post.js`);
+
   return graphql(`{
     allMarkdownRemark(
       sort: { order: DESC, fields: [frontmatter___date] }
@@ -70,24 +87,12 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
       return Promise.reject(result.errors)
     }
 
-    const posts = result.data.allMarkdownRemark.edges;
+    const blogPosts = result.data.allMarkdownRemark.edges.filter(edge => edge.node.frontmatter.path.includes('/blog'));
+    const workPosts = result.data.allMarkdownRemark.edges.filter(edge => edge.node.frontmatter.path.includes('/work'));
 
-    createTagPages(createPage, posts);
+    createTagPages(createPage, blogPosts);
+    producePosts(blogPosts, blogPostTemplate, createPage);
+    producePosts(workPosts, workPostTemplate, createPage);
 
-    // Create pages for each markdown file.
-    posts.forEach(({ node }, index) => {
-      const prev = index === 0 ? false : posts[index - 1].node;
-      const next = index === posts.length - 1 ? false : posts[index + 1].node;
-      createPage({
-        path: node.frontmatter.path,
-        component: blogPostTemplate,
-        context: {
-          prev,
-          next
-        }
-      });
-    });
-
-    return posts;
-  })
+  });
 };

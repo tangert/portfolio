@@ -1,5 +1,5 @@
 ---
-path: "/sample-post"
+path: "/blog/sample-post"
 date: "2017-07-18T13:35:13.234Z"
 title: "Sample Post"
 tags: ["latin", "sample"]

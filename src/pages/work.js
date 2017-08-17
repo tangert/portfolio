@@ -5,13 +5,22 @@ import Link from '../components/Link';
 
 import '../css/index.css';
 
-class Index extends Component {
+const WorkPostCard = (props) => {
+  return (
+    <div>
+      Hi
+    </div>
+  )
+}
+
+class Work extends Component {
   render () {
     const all_posts = this.props.data.allMarkdownRemark.edges;
+    const work_posts = all_posts.filter(post => post.node.frontmatter.path.includes('/work'));
     return (
       <div>
         <div className="blog-posts">
-          {all_posts
+          {work_posts
             .filter(post => post.node.frontmatter.title.length > 0)
             .map(({ node: post }) => {
               return (
@@ -38,10 +47,10 @@ class Index extends Component {
   }
 }
 
-export default Index;
+export default Work;
 
 export const pageQuery = graphql`
-  query IndexQuery {
+  query WorkQuery {
     allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {

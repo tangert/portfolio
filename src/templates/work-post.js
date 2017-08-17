@@ -8,16 +8,17 @@ import Tags from '../components/Tags';
 
 import '../css/blog-post.css';
 
-export default function BlogPostTemplate({ data, pathContext }) {
+export default function WorkPostTemplate({ data, pathContext }) {
   const { markdownRemark: post } = data;
   const { next, prev } = pathContext;
   return (
     <div className="blog-post-container">
       <Helmet title={`Gatsby Blog - ${post.frontmatter.title}`} />
       <div className="blog-post">
-          <h1 className="title">
-            {post.frontmatter.title}
-          </h1>
+        <h1 className="title">
+        TESTING FOR DIFFERENCES
+          {post.frontmatter.title}
+        </h1>
         <h2 className="date">
           {post.frontmatter.date}
         </h2>
@@ -42,7 +43,7 @@ export default function BlogPostTemplate({ data, pathContext }) {
 }
 
 export const pageQuery = graphql`
-  query BlogPostByPath($path: String!) {
+  query WorkPieceByPath($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {

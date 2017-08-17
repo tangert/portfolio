@@ -1,10 +1,11 @@
 module.exports = {
   siteMetadata: {
-    author: 'You!',
-    title: `Gatsby Default (Blog) Starter`,
+    author: 'Tyler Angert',
+    title: `Tyler Angert Portfolio`,
   },
   plugins: [
     'gatsby-plugin-catch-links',
+    `gatsby-plugin-sass`,
     {
       resolve: 'gatsby-source-filesystem',
       options: {
