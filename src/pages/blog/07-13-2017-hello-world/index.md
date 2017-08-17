@@ -1,6 +1,7 @@
 ---
 path: "/blog/hello-world.html"
 date: "2017-07-14T03:49:16.408Z"
+description: "test"
 title: "Hello World"
 tags: ["latin", "first"]
 ---

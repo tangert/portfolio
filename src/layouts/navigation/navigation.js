@@ -16,7 +16,8 @@ export default class Navigation extends Component {
         backgroundColor: "white",
         boxShadow: "0 1px 12px 1px rgba(0,0,0,0.20)",
         color: "lightgreen",
-        transition: "0.25s linear"
+        transition: "0.25s linear",
+        fontSize: "1.5em"
       }
     };
 

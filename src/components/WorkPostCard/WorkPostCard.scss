@@ -1,0 +1,36 @@
+.work-post-card-container {
+  display: flex;
+  flex-direction: row;
+  height: 200px;
+  background-color: blue;
+  border-radius: 10px;
+
+  .left {
+    display: flex;
+    background-color: red;
+    flex-direction: column;
+    flex: 4;
+
+    .top {
+      display: flex;
+      flex-direction: column;
+    }
+    .title{
+      background-color: white;
+    }
+    .description{
+      background-color: white;
+      height: 50px;
+    }
+
+    .tags {
+      background-color: blue;
+      flex: 1;
+    }
+  }
+
+  .right {
+    background-color: green;
+    flex: 1;
+  }
+}

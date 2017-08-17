@@ -2,16 +2,8 @@ import React, { Component } from 'react';
 import GatsbyLink from 'gatsby-link';
 import Helmet from 'react-helmet';
 import Link from '../components/Link';
-
+import WorkPostCard from '../components/WorkPostCard/WorkPostCard'
 import '../css/index.css';
-
-const WorkPostCard = (props) => {
-  return (
-    <div>
-      Hi
-    </div>
-  )
-}
 
 class Work extends Component {
   render () {
@@ -25,6 +17,12 @@ class Work extends Component {
             .map(({ node: post }) => {
               return (
                 <div className="blog-post-preview" key={post.id}>
+
+                  <WorkPostCard
+                    title={post.frontmatter.title}
+                    description={post.frontmatter.description}
+                    />
+
                   <h1 className="title">
                     <GatsbyLink to={post.frontmatter.path}>
                         {post.frontmatter.title}
@@ -58,6 +56,8 @@ export const pageQuery = graphql`
           id
           frontmatter {
             title
+            description
+            type
             date(formatString: "MMMM DD, YYYY")
             path
           }
