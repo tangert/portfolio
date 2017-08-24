@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans|Nunito:300|Quicksand|Roboto|Maven+Pro');
+@import '/breakpoints.scss';
 
 * {
   font-family: 'Maven Pro', sans-serif !important;
@@ -10,6 +11,10 @@ html, body, #___gatsby {
   width: 100%;
   margin: 0;
   overflow: hidden;
+}
+
+a {
+  text-decoration: none !important;
 }
 
 .app-container {
@@ -31,6 +36,11 @@ display: flex;
   /*background-color: green;*/
 }
 
+@include respond-to("mobile") {
+  .app-container{
+    bottom: 50px;
+  }
+}
 
 .blog-post-preview {
   display: flex;

@@ -2,46 +2,40 @@ import React, { Component } from 'react';
 import GatsbyLink from 'gatsby-link';
 import Helmet from 'react-helmet';
 import Link from '../components/Link';
-
-import '../css/index.css';
-
-const BlogPostCard = (props) => {
-  return (
-    <div>
-      Hi
-    </div>
-  )
-}
-
-//THIS IS HOME PAGE BRO.
-//NEED TO MAKE A LAYOUT FOR NAVIGATION
-//DEFAULT POSTS ARE FROM WORK
+import BlogPostCard from '../components/BlogPostCard/BlogPostCard';
+import '../css/pages/blog-page.scss';
 
 class Blog extends Component {
-  render () {
+  constructor(props){
+    super(props);
+
     const all_posts = this.props.data.allMarkdownRemark.edges;
     const blog_posts = all_posts.filter(post => post.node.frontmatter.path.includes('/blog'));
+
+    this.state = {
+      visible_posts: blog_posts,
+      blog_posts: blog_posts,
+      filters: []
+    };
+  }
+
+  render () {
     return (
       <div>
         <div className="blog-posts">
-          {blog_posts
+          {this.state.blog_posts
             .filter(post => post.node.frontmatter.title.length > 0)
             .map(({ node: post }) => {
               return (
-                <div className="blog-post-preview" key={post.id}>
-                  <h1 className="title">
-                    <GatsbyLink to={post.frontmatter.path}>
-                        {post.frontmatter.title}
-                    </GatsbyLink>
-
-                  </h1>
-                  <h2 className="date">
-                    {post.frontmatter.date}
-                  </h2>
-                  <p>
-                    {post.excerpt}
-                  </p>
-                  <Link to={post.frontmatter.path}>Read more</Link>
+                <div>
+                  <BlogPostCard
+                    key = {post.frontmatter.path}
+                    title={post.frontmatter.title}
+                    description={post.frontmatter.description}
+                    tags= {post.frontmatter.tags}
+                    link = {post.frontmatter.path}
+                    date ={post.frontmatter.date}
+                    />
                 </div>
               );
             })}
@@ -64,6 +58,8 @@ export const pageQuery = graphql`
             title
             date(formatString: "MMMM DD, YYYY")
             path
+            description
+            tags
           }
         }
       }

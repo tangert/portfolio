@@ -7,6 +7,10 @@ import Link from '../components/Link';
 
 import '../css/tags.css';
 
+// <Link to="/">
+//   <HomeIcon /> All posts
+// </Link>
+
 export default function Tags({ pathContext }) {
   const { posts, post, tag } = pathContext;
   if (tag) {
@@ -52,9 +56,6 @@ export default function Tags({ pathContext }) {
           );
         })}
       </ul>
-      <Link to="/">
-        <HomeIcon /> All posts
-      </Link>
     </div>
   );
 }

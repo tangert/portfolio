@@ -91,6 +91,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     const workPosts = result.data.allMarkdownRemark.edges.filter(edge => edge.node.frontmatter.path.includes('/work'));
 
     createTagPages(createPage, blogPosts);
+    createTagPages(createPage, workPosts);
+
     producePosts(blogPosts, blogPostTemplate, createPage);
     producePosts(workPosts, workPostTemplate, createPage);
 

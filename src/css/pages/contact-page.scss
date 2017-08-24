@@ -1,0 +1,27 @@
+.contact-page {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+
+  .title {
+    margin-bottom: 20px;
+  }
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  align-self: center;
+
+  input {
+    margin: 10px;
+    padding: 10px;
+
+    &:hover {
+      
+    }
+  }
+}

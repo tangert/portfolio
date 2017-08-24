@@ -22,9 +22,9 @@ export default class Header extends Component {
         <div className = "header-bottom">
           <div className = "header-title">Tyler Angert</div>
           <div className = "description-tags">
-            <div>Researcher</div>
-            <div>Engineer</div>
-            <div>Designer</div>
+            <div className = "tag researcher">Researcher</div>
+            <div className = "tag engineer">Engineer</div>
+            <div className = "tag designer">Designer</div>
           </div>
           <div className = "header-description">I blend media and technology into tomorrow's household innovations.</div>
         </div>

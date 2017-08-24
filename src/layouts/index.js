@@ -6,7 +6,7 @@ import Helmet from 'react-helmet';
 import Header from './header/header';
 import Navigation from './navigation/navigation';
 import '../css/typography.css';
-import '../css/index.css';
+import '../css/index.scss';
 
 export default class Template extends Component {
   constructor(props) {
@@ -64,7 +64,6 @@ export default class Template extends Component {
       }
 
       if((this.state.inflection_value - scroll_value) > (this.state.inflection_value*0.5)) {
-        console.log("SHOWING NOW");
         this.setState({
           header_visible: true,
           has_inflected:false,

@@ -6,7 +6,7 @@ import ForwardIcon from 'react-icons/lib/fa/chevron-right';
 import Link from '../components/Link';
 import Tags from '../components/Tags';
 
-import '../css/blog-post.css';
+import '../css/posts/blog-post.scss';
 
 export default function BlogPostTemplate({ data, pathContext }) {
   const { markdownRemark: post } = data;
@@ -15,9 +15,9 @@ export default function BlogPostTemplate({ data, pathContext }) {
     <div className="blog-post-container">
       <Helmet title={`Gatsby Blog - ${post.frontmatter.title}`} />
       <div className="blog-post">
-          <h1 className="title">
-            {post.frontmatter.title}
-          </h1>
+        <h1 className="title">
+          {post.frontmatter.title}
+        </h1>
         <h2 className="date">
           {post.frontmatter.date}
         </h2>

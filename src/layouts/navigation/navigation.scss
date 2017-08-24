@@ -15,14 +15,15 @@
 
   @include respond-to("mobile") {
     background: rgba(200,200,200,0.8);
-    position: fixed;
+    order: 3;
     margin: 0;
     bottom: 0;
+    padding: 0;
     width: 100%;
     min-height: 10%;
     font-weight: bold;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 40px 0 rgba(0,0,0,0.20);
+
 
     .nav-bar-background {
       background-color: red;
@@ -31,6 +32,10 @@
     .nav-btn {
       color: white;
       border-bottom-color: white;
+    }
+
+    .nav-btn.selected {
+      padding: 5px 5% 5px 5%;
     }
   }
 
@@ -53,4 +58,14 @@
     border-bottom-color: lightgreen;
   }
 
+}
+
+.nav-btn.selected{
+  border-radius: 5px;
+  background-color: white;
+  padding: 2.5vh 12.5% 2.5vh 12.5%;
+  box-shadow: 0 1px 12px 1px rgba(0,0,0,0.20);
+  color: lightgreen;
+  transition: 0.25s linear;
+  font-size: 1.5em;
 }

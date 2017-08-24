@@ -9,19 +9,9 @@ export default class Navigation extends Component {
 
     this.state = {
       currently_selected: this.convertPathToString(props.pathname),
-
-      selected_color: {
-        borderRadius: 5,
-        padding: "2.5% 12.5% 2.5% 12.5%",
-        backgroundColor: "white",
-        boxShadow: "0 1px 12px 1px rgba(0,0,0,0.20)",
-        color: "lightgreen",
-        transition: "0.25s linear",
-        fontSize: "1.5em"
-      }
     };
 
-    this.renderStyle = this.renderStyle.bind(this);
+    this.renderSection = this.renderSection.bind(this);
     this.onNavClick = this.onNavClick.bind(this);
     this.convertPathToString = this.convertPathToString.bind(this);
   }
@@ -50,16 +40,17 @@ export default class Navigation extends Component {
     return path.substr(1).toUpperCase();
   }
 
-  renderStyle(section){
-    return this.state.currently_selected === section ? this.state.selected_color : {};
+  renderSection(section){
+    console.log(this.state.currently_selected);
+    return this.state.currently_selected === section ? "nav-btn selected" : "nav-btn";
   }
 
   render () {
     return(
       <div className = "nav-bar">
-        <Link to = "/blog" className = "nav-btn" onClick = {() => this.onNavClick("BLOG")} style = {this.renderStyle("BLOG")}>Blog</Link>
-        <Link to = "/work" className = "nav-btn" onClick = {() => this.onNavClick("WORK")} style = {this.renderStyle("WORK")}>Work</Link>
-        <Link to = "/contact" className = "nav-btn" onClick = {() => this.onNavClick("CONTACT")} style = {this.renderStyle("CONTACT")}>Contact</Link>
+        <Link to = "/blog" className = {this.renderSection("BLOG")} onClick = {() => this.onNavClick("BLOG")}>Blog</Link>
+        <Link to = "/work" className = {this.renderSection("WORK")} onClick = {() => this.onNavClick("WORK")}>Work</Link>
+        <Link to = "/contact" className = {this.renderSection("CONTACT")} onClick = {() => this.onNavClick("CONTACT")}>Contact</Link>
       </div>
     )
   }
