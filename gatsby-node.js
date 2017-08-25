@@ -16,7 +16,7 @@ const producePosts = (posts, template, createPage) => {
 }
 
 const createTagPages = (createPage, edges) => {
-  const tagTemplate = path.resolve(`src/templates/tags.js`);
+  const tagTemplate = path.resolve(`src/templates/tags-page.js`);
   const posts = {};
 
   edges

@@ -1,10 +1,45 @@
 .work-post-container {
-  margin-left: 20px;
-  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  margin: 0px 20px 20px 20px;
+}
 
-  .work-post {
+.work-post {
+  .link.prev {
+    float: left;
+  }
+
+  .link.next {
+    float: right;
+  }
+
+  .title, .blog-post .date, .description {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  .date {
+    opacity: 0.5;
+    text-align: center;
+  }
+
+  .description {
+    opacity: 0.5;
+    font-weight: lighter;
+  }
+
+  .tags {
     display: flex;
-    flex-direction: column;
     justify-content: center;
   }
+
+  .navigation {
+    min-height: 60px;
+  }
+
+  img {
+    border-radius: 5px;
+  }
+
 }

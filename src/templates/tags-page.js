@@ -5,13 +5,7 @@ import TagsIcon from 'react-icons/lib/fa/tags';
 
 import Link from '../components/Link';
 
-import '../css/tags.css';
-
-// <Link to="/">
-//   <HomeIcon /> All posts
-// </Link>
-
-export default function Tags({ pathContext }) {
+export default function TagsPage({ pathContext }) {
   const { posts, post, tag } = pathContext;
   if (tag) {
     return (

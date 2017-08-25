@@ -1,22 +1,45 @@
-.blog-post .link.prev {
-  float: left;
+.blog-post-container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 20px 20px 20px;
 }
 
-.blog-post .link.next {
-  float: right;
-}
+.blog-post {
+  .link.prev {
+    float: left;
+  }
 
-.blog-post .title, .blog-post .date {
-  text-align: center;
-  margin: 0;
-  padding: 0;
-}
+  .link.next {
+    float: right;
+  }
 
-.blog-post .date {
-  color: #555;
-  margin-bottom: 1rem;
-}
+  .title, .blog-post .date, .description {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
 
-.blog-post .navigation {
-  min-height: 60px;
+  .date {
+    opacity: 0.5;
+    text-align: center;
+  }
+
+  .description {
+    opacity: 0.5;
+    font-weight: lighter;
+  }
+
+  .tags {
+    display: flex;
+    justify-content: center;
+    margin-top: -20px;
+  }
+
+  .navigation {
+    min-height: 60px;
+  }
+
+  img {
+    border-radius: 5px;
+  }
 }

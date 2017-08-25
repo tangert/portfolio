@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react'
 import GatsbyLink from 'gatsby-link';
-import './WorkPostCard.scss'
+import './../../css/PostCard.scss'
 
 export default class WorkPostCard extends Component {
   render () {
     return (
-      <div className = "work-post-card-container">
+      <div className = "post-card-container">
         <div className = "left">
           <div className = "top">
             <div className = "title">{this.props.title}</div>

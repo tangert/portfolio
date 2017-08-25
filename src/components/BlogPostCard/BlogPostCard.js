@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react'
 import GatsbyLink from 'gatsby-link';
-import './BlogPostCard.scss'
+import './../../css/PostCard.scss'
 
 export default class BlogPostCard extends Component {
   render () {
     return (
-      <div className = "blog-post-card-container">
+      <div className = "post-card-container">
         <div className = "left">
           <div className = "top">
             <div className = "title">{this.props.title}</div>
@@ -25,7 +25,7 @@ export default class BlogPostCard extends Component {
 
         <div className = "right">
           <GatsbyLink to = {this.props.link}>
-          <div className = "post-type">Read <span style = {{letterSpacing: 0}}>-></span> </div>
+          <div className = "post-type">Read the post</div>
           </GatsbyLink>
         </div>
       </div>
