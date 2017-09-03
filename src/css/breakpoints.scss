@@ -17,6 +17,13 @@
     }
   }
 
+  @else if $breakpoint == "tablet-lg" {
+    @media (max-width: 850px) {
+      @content;
+    }
+  }
+
+
   @else if $breakpoint == "laptop" {
     @media (min-width: 992px) {
       @content;

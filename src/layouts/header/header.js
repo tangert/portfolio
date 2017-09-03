@@ -8,8 +8,20 @@ import './header.scss'
 
 export default class Header extends Component {
   render () {
-    return(
-      <div className = {this.props.isVisible ? "header" : "header hidden"}>
+    var header;
+    var enter_button;
+    var top_nav_bar;
+
+    if(this.props.pathname === "/") {
+      enter_button = (
+        <Link to = "/work">
+          <button className = "enter-button">
+              Come explore
+          </button>
+        </Link>
+      );
+    } else {
+      top_nav_bar = (
         <div className = "header-top">
           <Link to = "/"><img src ={ta_logo} className = "header-img"/></Link>
           <div className = "header-social-icons">
@@ -18,17 +30,46 @@ export default class Header extends Component {
             <a href ="https://www.linkedin.com/in/tangert/" target="_blank"><img src ={linkedin} className = "header-img"/></a>
           </div>
         </div>
+      );
+    }
 
-        <div className = "header-bottom">
-          <div className = "header-title">Tyler Angert</div>
-          <div className = "description-tags">
-            <div className = "tag researcher">Researcher</div>
-            <div className = "tag engineer">Engineer</div>
-            <div className = "tag designer">Designer</div>
+    if(this.props.isVisible) {
+      header = (
+        <div className = {this.props.pathname === "/" ? "header site-not-entered" : "header"}>
+
+          <div>{top_nav_bar}</div>
+
+          <div className = "header-bottom">
+            <div className = "header-title">Tyler Angert</div>
+            <div className = "description-tags">
+              <div className = "tag researcher">Researcher</div>
+              <div className = "tag engineer">Engineer</div>
+              <div className = "tag designer">Designer</div>
+            </div>
+            <div className = "header-description">I blend media and technology into tomorrow's household innovations.</div>
           </div>
-          <div className = "header-description">I blend media and technology into tomorrow's household innovations.</div>
-        </div>
+
+          <div>{enter_button}</div>
+
       </div>
+      );
+    } else {
+      header = (
+        <div className = "header">
+          <div className = "header-top">
+            <Link to = "/"><img src ={ta_logo} className = "header-img"/></Link>
+            <div className = "header-social-icons">
+              <a href = "https://github.com/tangert" target="_blank"><img src ={github} className = "header-img"/></a>
+              <a href ="https://dribbble.com/tangert" target="_blank"><img src ={dribbble} className = "header-img"/></a>
+              <a href ="https://www.linkedin.com/in/tangert/" target="_blank"><img src ={linkedin} className = "header-img"/></a>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    return(
+      <div>{header}</div>
     )
   }
 }

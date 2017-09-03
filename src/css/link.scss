@@ -10,7 +10,8 @@
 
   &:hover {
     border-color: transparent;
-    background-color: lighten(lightgreen, 15);
+    background-color: lightgreen;
+    color: white;
 
     &:after {
       transform: scaleY(1);

@@ -32,7 +32,25 @@
   .tags {
     display: flex;
     justify-content: center;
+    align-items: baseline;
+
     margin-top: -20px;
+
+    * {
+      color: white;
+      background-color: lightgrey;
+      margin: 10px 5px 10px 10px;
+      font-size: 0.6em;
+      padding: 0px 10px 0px 10px;
+      border-radius: 5px;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      transition: 0.2s ease-in;
+
+      &:hover {
+        background-color: lightgreen;
+      }
+    }
   }
 
   .navigation {

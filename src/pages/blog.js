@@ -15,7 +15,6 @@ class Blog extends Component {
     this.state = {
       visible_posts: blog_posts,
       blog_posts: blog_posts,
-      filters: []
     };
   }
 
@@ -27,9 +26,8 @@ class Blog extends Component {
             .filter(post => post.node.frontmatter.title.length > 0)
             .map(({ node: post }) => {
               return (
-                <div>
+                <div key = {post.frontmatter.path}>
                   <BlogPostCard
-                    key = {post.frontmatter.path}
                     title={post.frontmatter.title}
                     description={post.frontmatter.description}
                     tags= {post.frontmatter.tags}

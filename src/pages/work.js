@@ -14,47 +14,18 @@ class Work extends Component {
     this.state = {
       visible_posts: work_posts,
       work_posts: work_posts,
-      filters: []
     };
-
-    this.filterByTag = this.filterByTag.bind(this);
-  }
-
-  filterByTag(tag){
-    this.setState({
-      visible_posts: this.state.work_posts.filter((edge) => edge.node.frontmatter.type === tag),
-    })
-    console.log(this.state);
   }
 
   render () {
-
-    let all_types = [];
-
-    // for(var i = 0; i < this.state.visible_posts.length; i++){
-    //   let type = this.state.visible_posts[i].node.frontmatter.type;
-    //   if(!all_types.includes(type)){
-    //     all_types.push(type);
-    //   }
-    // }
-
-    console.log("ALL_TYPES: ", all_types);
-
     return (
       <div>
-        <div className = "tag-filters">
-          {all_types.map(type => {
-            return(
-                <button onClick = {()=>this.filterByTag(tag)}>{type}</button>
-            )
-          })}
-        </div>
         <div className="work-posts">
           {this.state.visible_posts
             .filter(post => post.node.frontmatter.title.length > 0)
             .map(({ node: post }) => {
               return (
-                <div>
+                <div key = {post.frontmatter.path}>
                   <WorkPostCard
                     title={post.frontmatter.title}
                     description={post.frontmatter.description}

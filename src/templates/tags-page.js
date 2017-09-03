@@ -4,31 +4,25 @@ import HomeIcon from 'react-icons/lib/fa/home';
 import TagsIcon from 'react-icons/lib/fa/tags';
 
 import Link from '../components/Link';
+import '../css/pages/tags-page.scss';
 
 export default function TagsPage({ pathContext }) {
   const { posts, post, tag } = pathContext;
   if (tag) {
     return (
-      <div>
+      <div className = "tags-container">
         <h1>
           {post.length} post{post.length === 1 ? '' : 's'} tagged with {tag}
         </h1>
-        <ul>
+        <div className = "tags-list">
           {post.map(({ id, frontmatter, excerpt }) => {
             return (
-              <li key={id}>
-                <h1>
-                  <GatsbyLink to={frontmatter.path}>
-                    {frontmatter.title}
-                  </GatsbyLink>
-                </h1>
-                <p>
-                  {excerpt}
-                </p>
-              </li>
+                <Link to={frontmatter.path}>
+                  {frontmatter.title}
+                </Link>
             );
           })}
-        </ul>
+        </div>
         <Link to="/tags">
           <TagsIcon /> All tags
         </Link>
@@ -36,20 +30,20 @@ export default function TagsPage({ pathContext }) {
     );
   }
   return (
-    <div>
-      <h1>Tags</h1>
-      <ul className="tags">
+    <div className = "tags-container">
+      <h1>All tags</h1>
+      <div className="tags-list">
         {Object.keys(posts).map(tagName => {
           const tags = posts[tagName];
           return (
-            <li key={tagName}>
-              <GatsbyLink to={`/tags/${tagName}`}>
+            <div key={tagName}>
+              <Link to={`/tags/${tagName}`}>
                 {tagName}
-              </GatsbyLink>
-            </li>
+              </Link>
+            </div>
           );
         })}
-      </ul>
+      </div>
     </div>
   );
 }

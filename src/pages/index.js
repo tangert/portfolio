@@ -8,10 +8,8 @@ import '../css/index.scss';
 
 class Index extends Component {
   render () {
-    const all_posts = this.props.data.allMarkdownRemark.edges;
     return (
-      <div>
-      </div>
+      <div></div>
     );
   }
 }

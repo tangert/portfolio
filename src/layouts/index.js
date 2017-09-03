@@ -60,7 +60,6 @@ export default class Template extends Component {
           inflection_value: scroll_value,
           has_inflected: true
         });
-        console.log("INFLECTION: ",this.state.inflection_value);
       }
 
       if((this.state.inflection_value - scroll_value) > (this.state.inflection_value*0.5)) {
@@ -74,7 +73,6 @@ export default class Template extends Component {
     this.setState({
       last_scroll_value: scroll_value
     });
-
   }
 
   render() {
@@ -84,7 +82,7 @@ export default class Template extends Component {
 
       <div className = "app-container">
         <Helmet title="Tyler Angert" meta={[ { name: 'description', content: 'Portfolio' }, ]}/>
-        <Header isVisible = {this.state.header_visible}/>
+        <Header isVisible = {this.state.header_visible} pathname = {location.pathname}/>
         <Navigation pathname = {location.pathname} />
           <div ref = "children-container" onScroll = {this.onChildrenScroll} className = "children-container">
              {this.props.children()}
