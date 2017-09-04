@@ -2,17 +2,17 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import BackIcon from 'react-icons/lib/fa/chevron-left';
 import ForwardIcon from 'react-icons/lib/fa/chevron-right';
-import Link from '../components/Link';
+import Link from '../components/Link/Link';
 
-import '../css/posts/work-post.scss';
+import '../css/posts/post.scss';
 
-export default function WorkPostTemplate({ data, pathContext }) {
+export default function PostTemplate({ data, pathContext }) {
   const { markdownRemark: post } = data;
   const { next, prev } = pathContext;
   return (
-    <div className="work-post-container">
+    <div className="post-container">
       <Helmet title={`Gatsby Blog - ${post.frontmatter.title}`} />
-      <div className="work-post">
+      <div className="post">
         <h1 className="title">
           {post.frontmatter.title}
         </h1>
@@ -34,10 +34,9 @@ export default function WorkPostTemplate({ data, pathContext }) {
         </div>
 
         <div
-          className="blog-post-content"
+          className="post-content"
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
-
         <div className="navigation">
           {prev &&
             <Link className="link prev" to={prev.frontmatter.path}>
@@ -54,13 +53,13 @@ export default function WorkPostTemplate({ data, pathContext }) {
 }
 
 export const pageQuery = graphql`
-  query WorkPieceByPath($path: String!) {
+  query PostByPath($path: String!) {
     markdownRemark(frontmatter: { path: { eq: $path } }) {
       html
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
-        path
         description
+        path
         tags
         title
       }

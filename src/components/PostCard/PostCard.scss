@@ -1,9 +1,10 @@
-@import 'breakpoints.scss';
+@import './../../css/breakpoints.scss';
 
 .post-card-container {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  max-width: 750px;
 
   background-color: white;
   border-radius: 10px;
@@ -12,6 +13,9 @@
 
   .left {
     display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+
     flex-direction: column;
     flex: 4;
 
@@ -27,10 +31,6 @@
       margin-bottom: 10px;
       color: grey;
       transition: 0.3s ease-in;
-    }
-
-    .description{
-      color: green;
     }
 
     .date {
@@ -65,12 +65,10 @@
   .right {
     .post-type {
       margin: 10px;
-      border-color: lightblue;
       border-style: solid;
       border-width: 2px;
       border-radius: 10px;
       padding: 0px 10px 0px 10px;
-      color: lightblue;
       text-transform: uppercase;
       font-size: 0.6em;
       letter-spacing: 5px;
@@ -82,9 +80,6 @@
       }
 
       &:hover {
-        background-color: lightblue;
-        color: white;
-
         span {
           color: white;
         }

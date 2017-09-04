@@ -54,6 +54,7 @@ export default class Header extends Component {
       </div>
       );
     } else {
+
       header = (
         <div className = "header">
           <div className = "header-top">

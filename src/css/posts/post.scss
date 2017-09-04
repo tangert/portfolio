@@ -1,10 +1,10 @@
-.work-post-container {
+.post-container {
   display: flex;
   flex-direction: column;
-  margin: 0px 20px 20px 20px;
+  margin: 10px 20px 20px 20px;
 }
 
-.work-post {
+.post {
   .link.prev {
     float: left;
   }
@@ -13,7 +13,7 @@
     float: right;
   }
 
-  .title, .blog-post .date, .description {
+  .title, .post .date, .description {
     text-align: center;
     margin: 0;
     padding: 0;
@@ -33,6 +33,7 @@
     display: flex;
     justify-content: center;
     align-items: baseline;
+
     margin-top: -20px;
 
     * {
@@ -59,5 +60,4 @@
   img {
     border-radius: 5px;
   }
-
 }

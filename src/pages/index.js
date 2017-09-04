@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import GatsbyLink from 'gatsby-link';
 import Helmet from 'react-helmet';
-import Link from '../components/Link';
+import Link from '../components/Link/Link';
 import Work from './work';
 
 import '../css/index.scss';

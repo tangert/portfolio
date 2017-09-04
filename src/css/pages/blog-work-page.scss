@@ -1,8 +1,9 @@
 @import '/../../css/breakpoints.scss';
 
-.work-posts {
+.posts {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   margin: 20px 50px 0px 50px;
 
   @include respond-to("mobile") {

@@ -58,8 +58,7 @@ const createTagPages = (createPage, edges) => {
 exports.createPages = ({ boundActionCreators, graphql }) => {
   const { createPage } = boundActionCreators;
 
-  const blogPostTemplate = path.resolve(`src/templates/blog-post.js`);
-  const workPostTemplate = path.resolve(`src/templates/work-post.js`);
+  const postTemplate = path.resolve(`src/templates/post.js`);
 
   return graphql(`{
     allMarkdownRemark(
@@ -93,8 +92,8 @@ exports.createPages = ({ boundActionCreators, graphql }) => {
     createTagPages(createPage, blogPosts);
     createTagPages(createPage, workPosts);
 
-    producePosts(blogPosts, blogPostTemplate, createPage);
-    producePosts(workPosts, workPostTemplate, createPage);
+    producePosts(blogPosts, postTemplate, createPage);
+    producePosts(workPosts, postTemplate, createPage);
 
   });
 };

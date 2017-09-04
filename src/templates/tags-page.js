@@ -3,7 +3,7 @@ import GatsbyLink from 'gatsby-link';
 import HomeIcon from 'react-icons/lib/fa/home';
 import TagsIcon from 'react-icons/lib/fa/tags';
 
-import Link from '../components/Link';
+import Link from '../components/Link/Link';
 import '../css/pages/tags-page.scss';
 
 export default function TagsPage({ pathContext }) {

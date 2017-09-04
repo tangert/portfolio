@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import GatsbyLink from 'gatsby-link';
 import Helmet from 'react-helmet';
-import Link from '../components/Link';
-import WorkPostCard from '../components/WorkPostCard/WorkPostCard'
-import '../css/pages/work-page.scss';
+import Link from '../components/Link/Link';
+import PostCard from '../components/PostCard/PostCard'
+import '../css/pages/blog-work-page.scss';
 
 class Work extends Component {
   constructor(props){
@@ -20,13 +20,13 @@ class Work extends Component {
   render () {
     return (
       <div>
-        <div className="work-posts">
+        <div className="posts">
           {this.state.visible_posts
             .filter(post => post.node.frontmatter.title.length > 0)
             .map(({ node: post }) => {
               return (
                 <div key = {post.frontmatter.path}>
-                  <WorkPostCard
+                  <PostCard
                     title={post.frontmatter.title}
                     description={post.frontmatter.description}
                     tags= {post.frontmatter.tags}

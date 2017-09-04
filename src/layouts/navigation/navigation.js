@@ -7,7 +7,7 @@ export default class Navigation extends Component {
     super(props);
     console.log("PATH: ", props.pathname);
 
-    this.renderSection = this.renderSection.bind(this);
+    this.checkSelected = this.checkSelected.bind(this);
     this.convertPathToString = this.convertPathToString.bind(this);
   }
 
@@ -16,16 +16,16 @@ export default class Navigation extends Component {
     return path.substr(1).toUpperCase();
   }
 
-  renderSection(section){
+  checkSelected(section){
     return this.convertPathToString(this.props.pathname).includes(section) && this.props.pathname !== "/" ? "nav-btn selected" : "nav-btn";
   }
 
   render () {
     return(
       <div className = "nav-bar">
-        <Link to = "/blog" className = {this.renderSection("BLOG")}>Blog</Link>
-        <Link to = "/work" className = {this.renderSection("WORK")}>Work</Link>
-        <Link to = "/contact" className = {this.renderSection("CONTACT")}>Contact</Link>
+        <Link to = "/blog" className = {this.checkSelected("BLOG")}>{Blog}</Link>
+        <Link to = "/work" className = {this.checkSelected("WORK")}>Work</Link>
+        <Link to = "/contact" className = {this.checkSelected("CONTACT")}>Contact</Link>
       </div>
     )
   }

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import GatsbyLink from 'gatsby-link';
 import Helmet from 'react-helmet';
-import Link from '../components/Link';
-import BlogPostCard from '../components/BlogPostCard/BlogPostCard';
-import '../css/pages/blog-page.scss';
+import Link from '../components/Link/Link';
+import PostCard from '../components/PostCard/PostCard'
+import '../css/pages/blog-work-page.scss';
 
 class Blog extends Component {
   constructor(props){
@@ -21,18 +21,19 @@ class Blog extends Component {
   render () {
     return (
       <div>
-        <div className="blog-posts">
+        <div className="posts">
           {this.state.blog_posts
             .filter(post => post.node.frontmatter.title.length > 0)
             .map(({ node: post }) => {
               return (
                 <div key = {post.frontmatter.path}>
-                  <BlogPostCard
+                  <PostCard
                     title={post.frontmatter.title}
                     description={post.frontmatter.description}
                     tags= {post.frontmatter.tags}
                     link = {post.frontmatter.path}
                     date ={post.frontmatter.date}
+                    type={post.frontmatter.type}
                     />
                 </div>
               );
@@ -54,10 +55,11 @@ export const pageQuery = graphql`
           id
           frontmatter {
             title
+            description
+            type
+            tags
             date(formatString: "MMMM DD, YYYY")
             path
-            description
-            tags
           }
         }
       }
