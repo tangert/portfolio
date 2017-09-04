@@ -23,7 +23,7 @@ export default class Navigation extends Component {
   render () {
     return(
       <div className = "nav-bar">
-        <Link to = "/blog" className = {this.checkSelected("BLOG")}>{Blog}</Link>
+        <Link to = "/blog" className = {this.checkSelected("BLOG")}>Blog</Link>
         <Link to = "/work" className = {this.checkSelected("WORK")}>Work</Link>
         <Link to = "/contact" className = {this.checkSelected("CONTACT")}>Contact</Link>
       </div>
