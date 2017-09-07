@@ -3,6 +3,33 @@
   flex-direction: column;
   margin: 10px 20px 20px 20px;
 }
+.return-button {
+  align-self: flex-start;
+
+  color: grey;
+  background-color: transparent;
+  padding: 3px 10px 3px 10px;
+  border: 2px solid lightgrey;
+  border-radius: 5px;
+  text-decoration: none;
+  position: relative;
+  transition: 0.25s ease-in-out;
+
+  &:hover {
+    border-color: transparent;
+    background-color: lightgreen;
+    color: white;
+
+    &:after {
+      transform: scaleY(1);
+    }
+  }
+
+  &:visited {
+    outline: none;
+    color: darkgrey;
+  }
+}
 
 .post {
   .link.prev {

@@ -49,7 +49,7 @@ export default class Template extends Component {
     const elm = document.querySelector('.children-container');
     const scroll_value = elm.scrollTop;
 
-    if(scroll_value > this.state.last_scroll_value && scroll_value > 200) {
+    if(scroll_value > this.state.last_scroll_value && scroll_value > 350) {
       console.log('hiding top');
       this.setState({
         header_visible: false

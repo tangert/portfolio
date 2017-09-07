@@ -1,8 +1,8 @@
 ---
 path: "/work/empa"
-type: "case study"
+type: "research"
 tags: ["research","ux design", "ios"]
 description: "Designing an emotionally aware autism study"
-date: "2017-07-18T13:35:13.234Z"
+date: "2017-07-18T13:35:13.239Z"
 title: "Empa"
 ---

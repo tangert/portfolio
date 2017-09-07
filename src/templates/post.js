@@ -3,6 +3,7 @@ import Helmet from 'react-helmet';
 import BackIcon from 'react-icons/lib/fa/chevron-left';
 import ForwardIcon from 'react-icons/lib/fa/chevron-right';
 import Link from '../components/Link/Link';
+import GatsbyLink from 'gatsby-link';
 
 import '../css/posts/post.scss';
 
@@ -12,6 +13,13 @@ export default function PostTemplate({ data, pathContext }) {
   return (
     <div className="post-container">
       <Helmet title={`Gatsby Blog - ${post.frontmatter.title}`} />
+
+      <button className = "return-button">
+        <GatsbyLink  style = {{color: "grey" }}to = {post.frontmatter.path.includes("/work") ? "/work" : "/blog"}>
+          {post.frontmatter.path.includes("/work") ? "Back to work" : "Back to blog"}
+        </GatsbyLink>
+      </button>
+
       <div className="post">
         <h1 className="title">
           {post.frontmatter.title}

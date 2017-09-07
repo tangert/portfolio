@@ -8,9 +8,9 @@
   align-items: center;
   min-height: 10%;
 
-  margin: 10px 25% 2.5% 25%;
+  margin: 10px 25% 0% 25%;
   z-index: 999;
-
+  
   transition: 0.4s ease-out;
 
   @include respond-to("mobile") {

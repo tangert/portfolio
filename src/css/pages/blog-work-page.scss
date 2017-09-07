@@ -2,19 +2,29 @@
 
 .posts {
   display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin: 20px 50px 0px 50px;
+  margin: 20px 50px 50px 50px;
 
   @include respond-to("mobile") {
     flex-direction: column;
     margin: 20px 20px 0px 20px;
   }
 
-  @include respond-to("laptop") {
+  @include respond-to("tablet") {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  @include respond-to("tablet-lg") {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  @include respond-to("laptop"){
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
   }
+
 
   .tag-filters {
     display: flex;
