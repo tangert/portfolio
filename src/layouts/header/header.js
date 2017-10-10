@@ -8,13 +8,14 @@ import './header.scss'
 
 export default class Header extends Component {
   render () {
-    var header;
-    var enter_button;
-    var top_nav_bar;
+    let header;
+    let enter_button;
+    let top_nav_bar;
+    let style;
 
     if(this.props.pathname === "/") {
       enter_button = (
-        <Link to = "/work">
+        <Link to = "/about">
           <button className = "enter-button">
               Come explore
           </button>
@@ -32,6 +33,12 @@ export default class Header extends Component {
         </div>
       );
     }
+
+    // if(this.props.pathname.includes("/work/")) {
+    //   style = {
+    //     transform: "translateY(-100%)"
+    //   }
+    // }
 
     if(this.props.isVisible) {
       header = (

@@ -10,6 +10,7 @@ import '../css/posts/post.scss';
 export default function PostTemplate({ data, pathContext }) {
   const { markdownRemark: post } = data;
   const { next, prev } = pathContext;
+
   return (
     <div className="post-container">
       <Helmet title={`Gatsby Blog - ${post.frontmatter.title}`} />

@@ -45,8 +45,13 @@ export default class PostCard extends Component {
     this.setState({hover: !this.state.hover})
   }
 
+  handleCardHover = () => {
+
+  }
+
   render () {
-    var typeStyle;
+    let containerStyle;
+    let typeStyle;
     let color = stringToColor(this.props.type);
 
      if (this.state.hover) {
@@ -60,10 +65,14 @@ export default class PostCard extends Component {
      }
 
     return (
-      <div className = "post-card-container">
+      <GatsbyLink to = {this.props.link}>
+
+      <div className = "post-card-container"
+        onMouseOver = {this.handleCardHover}>
+
         <div className = "left">
           <div className = "top">
-            <div className = "title">{this.props.title}</div>
+            <div className = "title" >{this.props.title}</div>
             <div style = {{color: color}}className = "description">{this.props.description}</div>
               <div className = "date">{this.props.date}</div>
           </div>
@@ -84,11 +93,12 @@ export default class PostCard extends Component {
               style = {typeStyle}
               onMouseEnter={this.toggleHover}
               onMouseLeave={this.toggleHover}>
-              <span>Read the </span>{this.props.type}
+              <span>Explore the </span>{this.props.type}
             </div>
           </GatsbyLink>
         </div>
       </div>
+    </GatsbyLink>
     );
   }
 }
