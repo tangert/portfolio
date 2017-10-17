@@ -9,7 +9,8 @@ import '../css/index.scss';
 class Index extends Component {
   render () {
     return (
-      <div></div>
+      <div>        
+      </div>
     );
   }
 }

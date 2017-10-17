@@ -1,4 +1,8 @@
-const path = require('path');
+const _ = require("lodash")
+const Promise = require("bluebird")
+const path = require("path")
+const select = require(`unist-util-select`)
+const fs = require(`fs-extra`)
 
 const producePosts = (posts, template, createPage) => {
   posts.forEach(({ node }, index) => {
@@ -55,45 +59,52 @@ const createTagPages = (createPage, edges) => {
     });
 };
 
-exports.createPages = ({ boundActionCreators, graphql }) => {
-  const { createPage } = boundActionCreators;
+exports.createPages = ({ graphql, boundActionCreators }) => {
+  const { createPage } = boundActionCreators
 
   const postTemplate = path.resolve(`src/templates/post.js`);
 
-  return graphql(`{
-    allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] }
-      limit: 1000
-    ) {
-      edges {
-        node {
-          excerpt(pruneLength: 250)
-          html
-          id
-          timeToRead
-          frontmatter {
-            date
-            path
-            tags
-            title
+  return new Promise((resolve, reject) => {
+    const pages = []
+    const blogPost = path.resolve("./src/templates/blog-post.js")
+    resolve(
+      graphql(
+        `
+      {
+        allMarkdownRemark(
+          limit: 1000
+          sort: { order: DESC, fields: [frontmatter___date] }
+          ) {
+          edges {
+            node {
+              html
+              frontmatter {
+                date
+                path
+                tags
+                title
+              }
+            }
           }
         }
       }
-    }
-  }`)
-  .then(result => {
-    if (result.errors) {
-      return Promise.reject(result.errors)
-    }
+    `
+      ).then(result => {
+        if (result.errors) {
+          console.log(result.errors)
+          reject(result.errors)
+        }
 
-    const blogPosts = result.data.allMarkdownRemark.edges.filter(edge => edge.node.frontmatter.path.includes('/blog'));
-    const workPosts = result.data.allMarkdownRemark.edges.filter(edge => edge.node.frontmatter.path.includes('/work'));
+        const blogPosts = result.data.allMarkdownRemark.edges.filter(edge => edge.node.frontmatter.path.includes('/blog'));
+        const workPosts = result.data.allMarkdownRemark.edges.filter(edge => edge.node.frontmatter.path.includes('/work'));
 
-    createTagPages(createPage, blogPosts);
-    createTagPages(createPage, workPosts);
+        createTagPages(createPage, blogPosts);
+        createTagPages(createPage, workPosts);
 
-    producePosts(blogPosts, postTemplate, createPage);
-    producePosts(workPosts, postTemplate, createPage);
+        producePosts(blogPosts, postTemplate, createPage);
+        producePosts(workPosts, postTemplate, createPage);
 
-  });
-};
+      })
+    )
+  })
+}

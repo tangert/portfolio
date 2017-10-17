@@ -43,7 +43,7 @@ class Work extends Component {
   }
 }
 
-export default Work;
+export default Work
 
 export const pageQuery = graphql`
   query WorkQuery {

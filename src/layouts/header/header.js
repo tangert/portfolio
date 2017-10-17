@@ -15,7 +15,7 @@ export default class Header extends Component {
 
     if(this.props.pathname === "/") {
       enter_button = (
-        <Link to = "/about">
+        <Link to = "/work">
           <button className = "enter-button">
               Come explore
           </button>
