@@ -3,6 +3,7 @@ module.exports = {
     title: "Tyler Angert Portfolio",
     author: "Tyler Angert",
   },
+  pathPrefix: `/portfolio`,
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
